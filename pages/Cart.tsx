@@ -11,7 +11,7 @@ interface CartProps {
 
 export const Cart: React.FC<CartProps> = ({ items, onUpdateQuantity, onRemove, onNavigate }) => {
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const shipping = subtotal > 100 ? 0 : 9.99;
+  const shipping = subtotal > 2500 ? 0 : 250;
   const total = subtotal + shipping;
 
   if (items.length === 0) {
@@ -50,7 +50,7 @@ export const Cart: React.FC<CartProps> = ({ items, onUpdateQuantity, onRemove, o
                       <p className="text-sm text-gray-500 mb-1">Size: {item.selectedSize}</p>
                       <p className="text-sm text-gray-500">Ref: {item.id.toUpperCase()}</p>
                     </div>
-                    <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                    <p className="font-medium">₹{(item.price * item.quantity).toLocaleString('en-IN')}</p>
                   </div>
 
                   <div className="flex justify-between items-center mt-4">
@@ -91,17 +91,17 @@ export const Cart: React.FC<CartProps> = ({ items, onUpdateQuantity, onRemove, o
             <div className="space-y-4 mb-6 border-b border-gray-200 pb-6">
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Subtotal</span>
-                <span className="font-medium">${subtotal.toFixed(2)}</span>
+                <span className="font-medium">₹{subtotal.toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-gray-600">Shipping</span>
-                <span className="font-medium">{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
+                <span className="font-medium">{shipping === 0 ? 'Free' : `₹${shipping.toLocaleString('en-IN')}`}</span>
               </div>
             </div>
 
             <div className="flex justify-between items-center mb-8">
               <span className="font-bold text-lg uppercase">Total</span>
-              <span className="font-bold text-lg">${total.toFixed(2)}</span>
+              <span className="font-bold text-lg">₹{total.toLocaleString('en-IN')}</span>
             </div>
 
             <button 

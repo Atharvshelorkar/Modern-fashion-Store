@@ -40,7 +40,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product, onNavig
         {/* Info */}
         <div className="flex flex-col justify-center">
           <h1 className="text-3xl md:text-4xl font-bold uppercase tracking-wide mb-4">{product.name}</h1>
-          <p className="text-2xl font-medium mb-8">${product.price.toFixed(2)}</p>
+          <p className="text-2xl font-medium mb-8">₹{product.price.toLocaleString('en-IN')}</p>
 
           <p className="text-gray-600 mb-8 leading-relaxed font-light">
             {product.description}
@@ -85,7 +85,7 @@ export const ProductDetails: React.FC<ProductDetailsProps> = ({ product, onNavig
 
           <div className="mt-8 border-t border-gray-100 pt-6 text-xs text-gray-500 space-y-2">
             <p>REF: {product.id.toUpperCase()}-2024</p>
-            <p className="flex items-center"><Check size={12} className="mr-1"/> Free Standard Shipping on orders over $100</p>
+            <p className="flex items-center"><Check size={12} className="mr-1"/> Free Standard Shipping on orders over ₹2,500</p>
             <p className="flex items-center"><Check size={12} className="mr-1"/> 30-Day Returns Policy</p>
           </div>
         </div>

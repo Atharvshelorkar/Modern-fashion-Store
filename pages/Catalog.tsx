@@ -107,7 +107,7 @@ export const Catalog: React.FC<CatalogProps> = ({ initialCategory, searchQuery, 
                    <div className="pr-4">
                      <h4 className="text-sm font-medium uppercase text-gray-900 leading-tight">{product.name}</h4>
                    </div>
-                   <p className="text-sm font-bold text-gray-900 shrink-0">${product.price.toFixed(2)}</p>
+                   <p className="text-sm font-bold text-gray-900 shrink-0">₹{product.price.toLocaleString('en-IN')}</p>
                 </div>
              </div>
           ))}
